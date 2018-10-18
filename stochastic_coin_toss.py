@@ -35,7 +35,10 @@ print(n)
 ar_len = genome_len*3*n
 # if clock decays with rate np.exp(q1), p for coin tosses is 1 - np.exp(-q1*del_t)
 
-q = [[0,10e-7,10e-7,10e-7], [10e-7,0,10e-7,10e-7], [10e-7,10e-7,0,10e-7], [10e-7,10e-7,10e-7,0]]
+#enter value of l
+l = 10e-7
+
+q = [[0,l,l,l], [l,0,l,l], [l,l,0,l], [l,l,l,0]]
 p = []
 
 for i in range(4):
@@ -76,3 +79,18 @@ for i in range(n):
 
 print(eq_mat)
 
+#Amino acid classification Aliphatic Glycine - GGT, GGC, GGA, GGG Alanine - TTT, TTC Valine - GTT, GTC, GTA, GTG Leucine - CTT, CTC, CTA, CTG, TTA, TTG Isoleucine - ATT, ATC, ATA Hydroxyl or Sulfur-containing Serine - TCT, TCC, TCA, TCG, AGT, AGC Cysteine - TGT, TGC Threonine - ACT, ACC, ACA, ACG Methionine - ATG Cyclic Proline - CCT, CCC, CCA, CCG Aromatic Phenylalanine Tyrosine - TAT, TAC Tryptophan - TGG Basic Histidine - CAT, CAC Lysine - AAA, AAG Arginine - CGT, CGC, CGA, CGG, AGA, AGG Acidic Aspartatic acid - GAT, GAC Glutamatic acid - GAA, GAG Amide Asparagine - AAT, AAC Glutamine - CAA, CAG
+
+aliph = ["GGT", "GGC", "GGA", "GGG", "TTT", "TTC", "GTT", "GTC", "GTA", "GTG", "CTT", "CTC", "CTA", "CTG", "TTA", "TTG", "ATT", "ATC", "ATA"]
+sulf = ["TCT", "TCC", "TCA", "TCG", "AGT", "AGC", "TGT", "TGC", "ACT", "ACC", "ACA", "ACG", "ATG"]
+cyclic = ["CCT", "CCC", "CCA", "CCG"]
+arom = ["TAT", "TAC", "TGG"]
+basic = ["CAT", "CAC", "AAA", "AAG", "CGT", "CGC", "CGA", "CGG", "AGA", "AGG"]
+acidic = ["GAT", "GAC", "GAA", "GAG"]
+amide = ["AAT", "AAC", "CAA", "CAG"]
+
+
+
+
+p = np.power(eq_mat[0][0],a*e)*np.power(eq_mat[1][1],t*e)*np.power(eq_mat[2][2],c*e)*np.power(eq_mat[3][3],g*e)
+print(p)
